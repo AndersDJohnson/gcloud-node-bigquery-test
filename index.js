@@ -1,11 +1,12 @@
 'use strict';
 
+var config = require('./specific/config.json');
 var gcloud = require('gcloud');
 var bigquery;
 
 bigquery = gcloud.bigquery({
-    projectId: '',
-    keyFilename: 'specific/key.json'
+    projectId: config.projectId,
+    keyFilename: config.keyFilename
 });
 
 // var query = 'SELECT url FROM [publicdata:samples.github_nested] LIMIT 100';
