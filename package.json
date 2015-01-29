@@ -1,0 +1,9 @@
+{
+  "name": "gcloud-node-bigquery-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gcloud": "^0.12.0"
+  }
+}
