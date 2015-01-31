@@ -1,10 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  a(href="#", id="bq-button" class="btn btn-primary") test
-  br
-  a(href="#", id="bq-button-url" class="btn btn-primary") bg url
-  br
-  a(href="#", id="bq-button-weather" class="btn btn-primary") bq weather
+  div.container
+    div.row
+      div.col-sm-2
+        p
+          a(href="#", id="bq-button", class="btn btn-primary") test
+        p
+          a(href="#", id="bq-button-url", class="btn btn-primary") bg url
+        p
+          a(href="#", id="bq-button-weather", class="btn btn-primary") bq weather
+      div.col-sm-10
+        pre#result
