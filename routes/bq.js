@@ -5,14 +5,20 @@ var gcloud = require('gcloud');
 var bigquery;
 if (process.env.NODE_ENV === 'staging') {
     bigquery = gcloud.bigquery({
-        projectId: process.env.PROJECT_ID,
-        credentials: process.env.KEY_FILE
+        projectId: process.env.BQ_PROJECT_ID,
+        credentials: {
+            "private_key_id": process.env.BQ_PRIVATE_KEY_ID,
+            "private_key": process.env.BQ_PRIVATE_KEY_ID,
+            "client_email": process.env.BQ_CLIENT_EMAIL,
+            "client_id": process.env.BQ_CLIENT_ID,
+            "type": process.env.BQ_TYPE
+        }
     });
 } else {
     var config = require('../specific/config.json');
     bigquery = gcloud.bigquery({
-        projectId: config.PROJECT_ID,
-        keyFilename: config.KEY_FILE
+        projectId: config.BQ_PROJECT_ID,
+        keyFilename: config.BQ_KEY_FILE
     });
 }
 
