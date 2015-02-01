@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'staging') {
         projectId: process.env.BQ_PROJECT_ID,
         credentials: {
             "private_key_id": process.env.BQ_PRIVATE_KEY_ID,
-            "private_key": process.env.BQ_PRIVATE_KEY_ID,
+            "private_key": process.env.BQ_PRIVATE_KEY,
             "client_email": process.env.BQ_CLIENT_EMAIL,
             "client_id": process.env.BQ_CLIENT_ID,
             "type": process.env.BQ_TYPE
