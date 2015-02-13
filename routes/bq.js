@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var gcloud = require('gcloud');
-
 var bigquery;
-if (process.env.NODE_ENV === 'staging') {
+
+if (process.env.NODE_ENV === 'production') {
+
+    // on Heroku
     bigquery = gcloud.bigquery({
         projectId: process.env.BQ_PROJECT_ID,
         credentials: {
@@ -15,6 +17,8 @@ if (process.env.NODE_ENV === 'staging') {
         }
     });
 } else {
+
+    // on localhost
     var config = require('../specific/config.json');
     bigquery = gcloud.bigquery({
         projectId: config.BQ_PROJECT_ID,
@@ -47,7 +51,7 @@ router.get('/url', function(req, res) {
 });
 
 router.get('/weather', function(req, res) {
-    var query = 'SELECT year, month, day, thunder, rain, FROM [publicdata:samples.gsod] WHERE thunder=TRUE AND rain=TRUE AND station_number=037720 ORDER BY year DESC, month DESC, day DESC LIMIT 10';
+    var query = 'SELECT max_temperature FROM [publicdata:samples.gsod] LIMIT 100';
     bigquery.query(query, function(err, rows, nextQuery) {
         if (err) {
             console.log('err::', err);

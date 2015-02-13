@@ -3,12 +3,18 @@ extends layout
 block content
   div.container
     div.row
-      div.col-sm-2
+      div.col-sm-3
         p
-          a(href="#", id="bq-button", class="btn btn-primary") test
+          a(href="#", id="bq-button", class="btn btn-default btn-block") Test
+        hr
         p
-          a(href="#", id="bq-button-url", class="btn btn-primary") bg url
+          a(href="#", id="bq-button-url", class="btn btn-primary btn-block") Run BigQuery
+          pre
+            span.small SELECT max_temperature FROM [publicdata:samples.gsod]
+        hr
         p
-          a(href="#", id="bq-button-weather", class="btn btn-primary") bq weather
-      div.col-sm-10
+          a(href="#", id="bq-button-weather", class="btn btn-primary btn-block") Run BigQuery
+          pre
+            span.small SELECT url FROM [publicdata:samples.github_nested]
+      div.col-sm-9
         pre#result
