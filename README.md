@@ -20,12 +20,17 @@ $ npm start
 
 ### `development` (on localhost)
 
-Add `config.json` file in the `specific` folder.
+Add a `config.json` file in the `specific` folder.
 
 ### `production` (on Heroku)
 
 Set up config vars:
-`BQ_PRIVATE_KEY_ID`, `BQ_PRIVATE_KEY`, `BQ_CLIENT_EMAIL`, `BQ_CLIENT_ID`, `BQ_TYPE`
+
+- `BQ_PRIVATE_KEY_ID`
+- `BQ_PRIVATE_KEY`
+- `BQ_CLIENT_EMAIL`
+- `BQ_CLIENT_ID`
+- `BQ_TYPE`
 
 ## Misc
 
