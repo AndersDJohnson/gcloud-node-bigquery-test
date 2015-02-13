@@ -37,7 +37,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/url', function(req, res) {
-    var query = 'SELECT url FROM [publicdata:samples.github_nested] LIMIT 100';
+    var query = 'SELECT url FROM [publicdata:samples.github_nested] LIMIT 20';
     bigquery.query(query, function(err, rows, nextQuery) {
         if (err) {
             console.log('err::', err);
@@ -51,7 +51,7 @@ router.get('/url', function(req, res) {
 });
 
 router.get('/weather', function(req, res) {
-    var query = 'SELECT max_temperature FROM [publicdata:samples.gsod] LIMIT 100';
+    var query = 'SELECT max_temperature FROM [publicdata:samples.gsod] LIMIT 20';
     bigquery.query(query, function(err, rows, nextQuery) {
         if (err) {
             console.log('err::', err);
